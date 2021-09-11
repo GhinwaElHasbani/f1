@@ -1,0 +1,43 @@
+<div class="menu-header-wrapper">
+    <mat-toolbar color="primary" class="menu-header">
+        <mat-toolbar-row class="toolbar-row">
+            <div class="logo-header">
+                <img src="assets/images/F1-logo.png" class="logo-header-img" />
+                <div class="logo-header-text">{{'landing.header.title' | translate}}</div>
+            </div>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="toolbar-row-white">
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="toolbar-row-menu">
+            <mat-icon *ngIf="withMenu" class="back-btn" (click)="goBackToLanding()">
+                chevron_left</mat-icon>
+            <div class="tabs-wrapper" *ngIf="withMenu && !displayMenuIcon">
+                <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.currentLink" class="tab_item"
+                    routerLinkActive="highlight" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label | translate}}</a>
+            </div>
+            <button mat-icon-button *ngIf="withMenu && displayMenuIcon" class="menu-icon">
+                <mat-icon (click)="clickMenuIcon()">menu</mat-icon>
+            </button>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="toolbar-row-section" *ngIf="withMenu">
+            <form [formGroup]="form">
+                <a mat-button class="tab_item" (click)="goBackToLanding()"> {{ 'modules.seasons.header' |
+                    translate}}</a>
+                <mat-form-field class="section-dropdown">
+                    <mat-select formControlName="selectedSection">
+                        <mat-option *ngFor="let s of seasonsList" [value]="s">{{s}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+
+<f1-sidenav-menu [menuItems]="menuItems" *ngIf="menuItems && menuItems.length > 0">
+
+    <ng-content></ng-content>
+
+</f1-sidenav-menu>

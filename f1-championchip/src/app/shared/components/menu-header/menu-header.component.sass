@@ -1,0 +1,87 @@
+@import 'src/assets/global-styles/abstracts/vars'
+@import 'src/assets/global-styles/abstracts/colors'
+@import 'src/assets/global-styles/components/generic'
+    
+
+.menu-header-wrapper
+    .menu-header
+        position: fixed
+        z-index: 2
+        height: 90px
+        .toolbar-row
+            height: 90px
+            .logo-header
+                display: flex
+                flex-direction: column
+                &-img
+                    width: 95px
+                    margin-bottom: -20px
+                &-text
+                    font-size: small
+                    font-weight: bold
+        .toolbar-row-white
+            background-color: $f1-white
+            height: 91px
+            position: fixed
+            left: 170px
+            width: calc(100% - 190px)
+            border-top-left-radius: 50px
+            transform: skewX(-40deg)
+            &::after
+                content: ''
+                background-color: black
+                width: 40px
+                position: fixed
+                height: 90px
+                right: 70px
+        .toolbar-row-menu
+            height: 45px
+            position: fixed
+            top: 45px
+            left: 130px
+            color: black
+            .tabs-wrapper
+                margin-top: auto
+                overflow-x: auto
+                content-visibility: auto
+            .menu-icon
+                position: fixed
+                right: 0px
+                top: 50px
+            .back-btn
+                margin-top: auto
+                font-size: xx-large
+                height: 35px
+                width: 40px
+                cursor: pointer
+        .toolbar-row-section
+            height: 45px
+            position: fixed
+            top: 0px
+            left: 190px
+            color: black 
+            .section-dropdown
+                width: 60px
+
+a.tab_item
+    font-size: 16px
+    cursor: pointer
+    font-weight: 400
+    border-radius: 0px
+    height: 20px
+    line-height: 20px
+    margin: 0px 10px
+    padding: 0px 6px
+    border-top: 2px solid $f1-white
+    border-right: 2px solid $f1-white
+    &:hover
+        @extend .bordered
+
+.menu-spacer
+    flex: auto
+
+@media screen and (max-width: $breakpoint-tablet)
+    .menu-header-wrapper
+        .menu-header
+            .toolbar-row-white
+                width: 100%

@@ -1,0 +1,8 @@
+<div class="main-title table_wrapper">
+    {{ moduleTitle | translate}}
+</div>
+<div class="table_wrapper">
+    <f1-custom-data-table [data]="dataTableData" [columnsDefinition]="dataTableColumnsDefinition"
+        [paginatorConfig]="paginatorConfig" (more)="onPage($event)" [rowExpandable]="rowExpandable" expandedData="resultsList">
+    </f1-custom-data-table>
+</div>

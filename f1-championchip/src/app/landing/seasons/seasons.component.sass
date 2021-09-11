@@ -1,0 +1,23 @@
+@import 'src/assets/global-styles/abstracts/vars'
+@import 'src/assets/global-styles/abstracts/colors'
+    
+.body-wrapper
+    padding: 15px 3%
+    &.cards_wrapper
+        display: inline-flex
+        flex-direction: row
+        flex-wrap: wrap
+        gap: 20px
+        padding-top: 0px
+    &.main-title::after
+        left: 3%
+
+@media screen and ( max-width: $breakpoint-mobile )
+    .body-wrapper
+        padding: 15px 10%
+        // The cards wrapper on mobile shouldn't be a grid, 
+        //all cards will be listed under each others
+        &.cards_wrapper
+            display: block
+            flex-direction: none
+            flex-wrap: none

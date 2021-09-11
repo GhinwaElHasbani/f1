@@ -1,0 +1,10 @@
+<div class="main-title body-wrapper">
+    {{'modules.seasons.title' | translate}}
+</div>
+<div class="cards_wrapper body-wrapper" *ngIf="cardData && cardData.length > 0">
+    <div class="year_card" *ngFor="let s of seasonsList; let i = index">
+
+        <f1-custom-card [cardData]="cardData[i]" (cardClicked)="goToDetails(s.Season)"></f1-custom-card>
+    </div>
+
+</div>

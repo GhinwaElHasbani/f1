@@ -1,0 +1,43 @@
+<div *ngIf="cardData" class="card_wrapper">
+    <div class="cover-border cover-border-top">
+
+    </div>
+    <mat-card class="card-element" (click)="clickOnCard($event)">
+        <mat-card-header>
+            <mat-card-title (click)="clickOnTitle($event)">{{cardData.title}}</mat-card-title>
+            <mat-card-subtitle>{{cardData.subTitle}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="image-text-line">
+                <div mat-card-image>
+                    <img *ngIf="cardData.imageUrl" [src]="cardData.imageUrl" class="image-text-line-img"
+                        (click)="clickOnImage($event)">
+                </div>
+                <div class="image-text-line-txt">
+                    <div>
+                        <p class="bold-title">
+                            Driver
+                        </p>
+                        <p class="bold-text">
+                            {{cardData.contentTitle}}
+                        </p>
+                    </div>
+                    <div>
+                        <p class="bold-title">
+                            Constructor
+                        </p>
+                        <p class="bold-text">
+                            {{cardData.contentSubTitle}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+    <div class="cover-border cover-border-bottom">
+
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+<f1-menu-header [menuItems]="menuItems" [selectedSection]="currentSection?.season"
+    (changeSection)="changeSection($event)" [withMenu]="true">
+
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+
+</f1-menu-header>

@@ -1,0 +1,51 @@
+@import 'src/assets/global-styles/abstracts/colors'
+
+\:host
+    display: block
+    background-color: #fff
+    overflow: auto
+    padding: 6px
+    content-visibility: auto
+
+.table-wrapper
+    width: 100%
+    .record-row
+        display: flex
+        padding: 5px
+        .record-cell
+            padding: 5px
+            word-break: break-word
+            min-width: 75px
+            // .date-cell
+            //     text-align: center
+            .link-cell
+                text-align: center
+                .linkicon
+                    cursor: pointer
+
+    .record-header-row
+        margin-bottom: -15px
+        .record-header
+            font-size: medium
+            color: $primary
+            font-weight: 500
+    .record-data-row
+        //background-color: 1px solid lighten($primary, 70%)
+        background-color: lighten($primary, 80%)
+        border-radius: 10px
+        margin: 15px 0px
+        min-width: fit-content  
+        &:hover
+            background-color: lighten($primary, 70%)
+        &.highlighted
+            color: $accent
+            font-weight: 500
+
+    .record-expand-row
+        display: inline-flex
+        background-color: $f1-white
+        border-radius: 10px
+        width: 88vw
+        overflow: auto
+        margin: 5px 15px 20px 15px
+        gap: 15px

@@ -1,0 +1,45 @@
+<div class="table-wrapper" *ngIf="data && data.currentlyVisibleRows; else noData">
+  <div class="record-header-row record-row">
+    <div class="record-header record-cell" *ngFor="let col of columnsDefinition" [ngStyle]="{'width': col.width}">
+      {{col.label}}
+    </div>
+  </div>
+  <div class="record-data-row" [ngClass]="{'pointer': rowExpandable && row[expandedDataProp], 'highlighted': row.isHighlighted}"
+    *ngFor="let row of data.currentlyVisibleRows">
+
+    <div class="record-row" (click)="expandRow(row)">
+      <div class="record-cell record-data-cell" *ngFor="let col of columnsDefinition" [ngStyle]="{'width': col.width}">
+        <ng-container *ngIf="col?.format === columnFormat.Link; else normalCell">
+          <div [ngClass]="getCellClass(col)">
+            <mat-icon *ngIf="col.icon" (click)="openWindow(row[col.property])" class="linkicon">{{ col.icon }}
+            </mat-icon>
+          </div>
+        </ng-container>
+        <ng-template #normalCell>
+          <div [ngClass]="getCellClass(col)">
+            {{formatCellValue(col, row)}}
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="record-row record-expand-row" *ngIf="row.expanded && row[expandedDataProp]">
+
+      <div *ngFor="let c of row[expandedDataProp]">
+        <f1-custom-card [cardData]="c"></f1-custom-card>
+
+      </div>
+
+    </div>
+
+  </div>
+  <button mat-raised-button class="more-btn" color="primary" (click)="clickViewMore()" *ngIf="displayLoadMore">
+    {{ 'common.load_more' | translate }}
+  </button>
+</div>
+
+<ng-template #noData>
+  <div>
+    {{ 'common.no_data' | translate }}
+  </div>
+</ng-template>

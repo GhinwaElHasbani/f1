@@ -1,0 +1,33 @@
+{
+    "landing": {
+        "header": {
+            "title": "Championship",
+            "series": "Series"
+        }
+    },
+    "common": {
+        "load_more": "Load more...",
+        "no_data": "No Data"
+    },
+    "modules": {
+        "seasons": {
+            "title": "Seasons",
+            "header": "Season",
+            "top_1": "TOP 1"
+        },
+        "races": {
+            "title": "Races",
+            "position": "Pos:",
+            "number": "#"
+        },
+        "circuits": {
+            "title": "Circuits"
+        },
+        "drivers": {
+            "title": "Drivers"
+        },
+        "constructors": {
+            "title": "Constructors"
+        }
+    }
+}

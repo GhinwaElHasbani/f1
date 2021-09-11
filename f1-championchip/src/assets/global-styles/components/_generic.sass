@@ -1,0 +1,32 @@
+@import '../abstracts/colors'
+    
+.pointer
+    cursor: pointer
+
+.highlight
+    color: $accent !important
+    font-weight: 500
+
+.bold-text
+    font-weight: bold
+
+.main-title
+    color: $primary
+    font-size: x-large
+    font-weight: 500
+    &::after
+        content: ""
+        position: absolute
+        height: 2px
+        transform: translateY(30px)
+        width: 46px
+        left: 3%
+        background-color: $primary
+
+.mat-button-focus-overlay
+  background-color: transparent
+
+.bordered
+    border-top: 2px solid $accent
+    border-right: 2px solid $accent
+    border-top-right-radius: 10px
