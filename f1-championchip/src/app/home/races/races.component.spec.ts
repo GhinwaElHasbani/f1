@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
-import { ModuleBaseClass } from 'src/app/shared/bases/module-base.class';
-import { ModuleBaseClassMock } from 'src/app/shared/bases/module-base.class.spec';
+import { ModuleBaseClass } from 'src/app/shared/bases/module.base';
 import { SectionService } from 'src/app/shared/services/section.service';
 import { SectionStub } from 'src/app/shared/services/section.service.spec';
-import { HomeService } from '../../home.service';
+import { ModuleBaseClassMock } from '../circuits/circuits.component.spec';
+import { HomeService } from '../home.service';
 
 import { RacesComponent } from './races.component';
 
@@ -28,7 +28,7 @@ class RouterStub {
 class ActivatedRouteStub {
   private subject = new Subject();
 
-  push(value) {
+  push(value: any) {
     this.subject.next(value);
   }
 

@@ -1,7 +1,12 @@
-import { HelperBase } from './helper.base';
+import { HelpersBaseClass } from './helper.base';
 
-describe('HelperBase', () => {
+
+export class MockHelperBaseClass {
+
+}
+
+describe('HelpersBaseClass', () => {
   it('should create an instance', () => {
-    expect(new HelperBase()).toBeTruthy();
+    expect(new HelpersBaseClass()).toBeTruthy();
   });
 });

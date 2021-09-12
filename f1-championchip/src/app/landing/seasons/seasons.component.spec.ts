@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
-import { MockHelperBaseClass } from 'src/app/shared/bases/helper-base.class.spec';
-import { HelpersBaseClass } from 'src/app/shared/bases/helpers-base.class';
+import { HelpersBaseClass } from 'src/app/shared/bases/helper.base';
+import { MockHelperBaseClass } from 'src/app/shared/bases/helper.base.spec';
 import { LanguageHelper } from 'src/app/shared/helpers';
 import { LangHelperMock } from 'src/app/shared/helpers/lang.helper.spec';
 import { LandingService } from '../landing.service';
@@ -19,7 +19,7 @@ class RouterStub {
 class ActivatedRouteStub {
   private subject = new Subject();
 
-  push(value) {
+  push(value: any) {
     this.subject.next(value);
   }
 
