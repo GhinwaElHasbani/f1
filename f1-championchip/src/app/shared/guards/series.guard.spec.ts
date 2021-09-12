@@ -1,11 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { SeriesGuard } from './series.guard';
 
 class RouterStub {
+  url: any;
 
+  navigate(url: any) {
+
+  }
 }
 
 describe('SeriesGuard', () => {
@@ -17,7 +21,7 @@ describe('SeriesGuard', () => {
       imports: [
         RouterTestingModule
       ],
-      providers: [ 
+      providers: [
         { provide: Router, useClass: RouterStub },
         SeriesGuard
       ]
@@ -28,6 +32,19 @@ describe('SeriesGuard', () => {
   });
 
   it('should be created', () => {
-   expect(guard).toBeTruthy();
+    expect(guard).toBeTruthy();
+  });
+
+  it('should navigate to default series if the urls has invalid one', () => {
+    let route = new ActivatedRouteSnapshot();
+    route.params = { series: 'f2', season: 2021 };
+    expect(guard.canActivate(route, undefined)).toBeFalse;
+  });
+
+  
+  it('should allow the urls with valid series', () => {
+    let route = new ActivatedRouteSnapshot();
+    route.params = { series: 'f1', season: 2021 };
+    expect(guard.canActivate(route, undefined)).toBeTrue;
   });
 });
