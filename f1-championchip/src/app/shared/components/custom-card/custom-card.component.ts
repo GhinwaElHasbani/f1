@@ -8,7 +8,7 @@ import { CustomCardModel } from './custom-card.model';
   styleUrls: ['./custom-card.component.sass']
 })
 export class CustomCardComponent implements OnInit, OnChanges {
-  @Input() cardData: CustomCardModel;
+  @Input() cardData?: CustomCardModel;
   @Output() titleClicked: EventEmitter<any> = new EventEmitter();
   @Output() imageClicked: EventEmitter<any> = new EventEmitter();
   @Output() cardClicked: EventEmitter<any> = new EventEmitter();
@@ -30,7 +30,7 @@ export class CustomCardComponent implements OnInit, OnChanges {
    * 
    * @param card 
    */
-  getImage(card) {
+  getImage(card: CustomCardModel) {
     this._wikiService.getImageFromWiki(card, 'wikiImageName').subscribe(im => {
       this.cardData.imageUrl = im;
     });
